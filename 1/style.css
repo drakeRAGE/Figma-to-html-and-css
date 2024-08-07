@@ -1,0 +1,358 @@
+@import url("https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&family=Open+Sans:wght@400;700&family=Roboto&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --dark-chocolate: #603936;
+    --dark-red: #E63946;
+    --light-color: #FFF9C6;
+}
+
+body{
+    font-family: "open sans", sans-serif;
+}
+
+.main-container{
+    width: 1366px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* navbar starts */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 42px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 30px;
+}
+
+nav ul li a {
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+}
+
+nav ul li a.active {
+    color: var(--dark-red);
+}
+
+a.btn {
+    border-radius: 8px;
+    padding: 8px 24px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 400ms;
+}
+
+a.btn.light {
+    border: 1px solid black;
+}
+
+a.btn.light:hover {
+    background-color: var(--dark-red);
+    color: var(--light-color);
+}
+
+/* navbar ends  */
+
+/* hero section starts  */
+.hero-container{
+    display: flex;
+    align-items: center;
+    height: calc(100vh - 131px);
+}
+
+.hero-container .hero-text h1{
+    font-family: "Oleo Script Swash Caps", cursive;
+    font-size: 60px;
+    font-weight: normal;
+    line-height: 100%;
+}
+
+.hero-container .hero-text p.subheading{
+    font-size: 16px;
+    line-height: 200%;
+    width: 490px;
+    margin-top: 16px;
+    margin-bottom: 20px;
+}
+
+a.btn.dark {
+    background-color: var(--dark-chocolate);
+    color: var(--light-color);
+    padding: 16px 32px;
+    display: inline-block;
+    border: 1px solid var(--dark-chocolate);
+}
+
+a.btn.dark:hover{
+    background-color: var(--light-color);
+    color: var(--dark-chocolate);
+    border: 1px solid var(--dark-chocolate);
+}
+
+.hero-container .hero-image{
+    flex: 1;
+    position: relative;
+}
+
+.hero-container .hero-text{
+    flex: 1.2;
+}
+
+.hero-container .hero-image .hero-ground {
+    background-color: var(--light-color);
+    position: absolute;
+    width: 360px;
+    height: 100px;
+    border-radius: 50%;
+    bottom: 28px;
+    left: 20px;
+    box-shadow: 0px 6px 15px 4px rgba(0, 0, 0, 0.25);
+    z-index: -100;
+}
+/* hero section ends  */
+
+/* social-media icons start  */
+.social-media-icons{
+    position: absolute;
+    bottom: 21px;
+    right: 0;
+}
+
+.social-media-icons a{
+    margin: 0 16px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 400ms;
+}
+
+.social-media-icons a:hover{
+    transform: scale(1.2);
+}
+/* social-media icons ends  */
+
+
+/* background-images start  */
+.background-images-left {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -200;
+}
+
+.background-images-left img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+}
+/* background-images ends  */
+
+/* animations */
+.background-images-left img {
+    animation: move-images 1000ms forwards ease-in-out;
+    transform: translateX(-100%);
+}
+
+.background-images-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -200;
+}
+
+@keyframes move-images {
+    to {
+        transform: translateX(0);
+    }
+}
+
+.hero-text h1,
+.hero-text p.subheading,
+.hero-text a.btn {
+    animation: content-text 1500ms forwards ease-in-out;
+    transform: translateX(-100px);
+    opacity: 0;
+}
+
+.hero-text p.subheading {
+    animation-delay: 200ms;
+}
+
+.hero-text a.btn {
+    animation-delay: 400ms;
+}
+
+@keyframes content-text {
+    50% {
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+nav .mobile-menu,
+nav .mobile-close,
+.mobile-navigation {
+    display: none;
+}
+
+.bg-left-mobile,
+.bg-right-mobile {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .background-images-left,
+    .background-images-right,
+    nav ul,
+    .hero-ground {
+        display: none;
+    }
+
+    .main-container {
+        width: 100%;
+    }
+
+    .navbar-logo {
+        z-index: 400;
+    }
+
+    .navbar-logo img {
+        height: 30px;
+    }
+
+    .hero-container {
+        flex-direction: column;
+    }
+
+    .hero-image img {
+        height: 286px;
+    }
+
+    .hero-image {
+        margin-top: -50px;
+    }
+
+    .hero-container .hero-text {
+        text-align: center;
+    }
+
+    .hero-container .hero-text h1 {
+        font-size: 32px;
+        line-height: 120%;
+    }
+
+    .hero-container .hero-text p.subheading {
+        width: 347px;
+        font-size: 16px;
+    }
+
+    a.btn.dark {
+        padding: 12px 32px;
+    }
+
+    .social-media-icons {
+        position: static;
+        text-align: center;
+        margin-top: -50px;
+        padding-top: 15px;
+    }
+
+    .hero-container .hero-text,
+    .hero-container .hero-image {
+        flex: unset;
+    }
+
+    .bg-left-mobile {
+        position: fixed;
+        top: 0;
+        z-index: 200;
+        display: block;
+    }
+
+    .bg-right-mobile {
+        position: fixed;
+        bottom: 0;
+        z-index: -100;
+        display: block;
+    }
+
+    /* nav menu start */
+    nav.mobile-navigation {
+        display: flex;
+        z-index: 100;
+        background-color: var(--light-color);
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    nav .mobile-navigation.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    nav .mobile-close.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    nav.mobile-navigation ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    nav.mobile-navigation ul li {
+        margin: 16px 0px;
+    }
+
+    nav.mobile-navigation ul li:last-child {
+        margin-top: 24px;
+    }
+
+    nav .mobile-close,
+    nav .mobile-menu {
+        z-index: 200;
+        background-color: var(--light-color);
+        box-shadow: 0px 4px 26px -3px rgba(0, 0, 0, 0.22);
+        border-radius: 0px 0px 24px;
+        padding: 30px;
+        position: fixed;
+        top: 0;
+        right: 0;
+        opacity: 0;
+        pointer-events: none;
+        display: block;
+    }
+
+    nav .mobile-close.active,
+    nav .mobile-menu.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
